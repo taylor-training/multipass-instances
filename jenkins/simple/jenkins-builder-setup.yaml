@@ -1,0 +1,17 @@
+#cloud-config
+
+package_update: true
+package_upgrade: true
+
+packages:
+ - git
+ - wget
+ - nano
+ - curl
+ - openjdk-11-jdk-headless
+
+runcmd:
+ - mv /etc/ssh/sshd_confing /etc/ssh/sshd_config.backup
+ - wget -O /etc/ssh/sshd_config https://raw.githubusercontent.com/taylor-training/multipass-instances/main/jenkins/simple/builder-sshd.conf
+ - chmod 600 /etc/ssh/sshd_config
+ - systemctl restart sshd
