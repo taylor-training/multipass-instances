@@ -16,7 +16,7 @@ Session 1 (Host):
 
 ```bash
 # Create consul-dev instance
-multipass launch --name consul-dev --cloud-init  jammy
+multipass launch --name consul-dev --cloud-init https://raw.githubusercontent.com/taylor-training/multipass-instances/main/consul/consul-setup.yaml jammy
 ```
 
 ### Run Consul on Instance
