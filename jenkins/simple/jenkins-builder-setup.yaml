@@ -9,6 +9,7 @@ packages:
  - nano
  - curl
  - openjdk-11-jdk-headless
+ - openjdk-17-jdk-headless
 
 runcmd:
  - mv /etc/ssh/sshd_confing /etc/ssh/sshd_config.backup
