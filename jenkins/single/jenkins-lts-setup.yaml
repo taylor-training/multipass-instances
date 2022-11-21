@@ -9,7 +9,7 @@ packages:
  - nano
  - curl
  - fontconfig
- - openjdk-11-jdk-headless
+ - openjdk-17-jdk-headless
 
 runcmd:
  - curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee /usr/share/keyrings/jenkins-keyring.asc > /dev/null
