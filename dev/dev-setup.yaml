@@ -1,0 +1,31 @@
+#cloud-config
+
+package_update: true
+package_upgrade: true
+
+packages:
+ - git
+ - wget
+ - nano
+ - unzip
+ - zip
+ - curl
+ - fontconfig
+ - build-essential 
+ - procps
+
+runcmd:
+ - wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O /tmp/omb-install.sh
+ - wget https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh -O /tmp/brew-install.sh
+ - wget https://get.sdkman.io -O /tmp/sdkman-install.sh
+ - chmod +x /tmp/*.sh
+ - chown ubuntu:ubuntu /tmp/*.sh
+ - su -lc "cd;/bin/bash /tmp/omb-install.sh" ubuntu
+ - su -lc "cd;/bin/bash /tmp/brew-install.sh" ubuntu
+ - su -lc "cd;echo 'eval \"\$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)\"' >> .bashrc" ubuntu
+ - su -lc "cd;/bin/bash /tmp/sdkman-install.sh" ubuntu
+ - su -lc "cd;brew install git go node npm" ubuntu
+ - su -lc "cd;sdk install java" ubuntu
+ - su -lc "cd;sdk install maven" ubuntu
+ - su -lc "cd;sdk install gradle" ubuntu
+ - su -lc "cd;sdk install groovy" ubuntu
